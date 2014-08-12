@@ -4,14 +4,17 @@
  * Created By: Shervin Shaikh
  * Sends a message to MeshBlu (formerly SkyNet) to turn off Philips Hue lights from anywhere in the world!
  * There needs to be a client on the LAN of where the lights are on to listen for the incoming messages.
+ * 
+ * This code is from the app.js source file on a CloudPebble project.
+ * Just create a new Pebble.js project and replace app.js with the code below, then build & run.
  */
 
 var UI = require('ui');
 
-localStorage.hue = 65000;
-localStorage.sat = 255;
-localStorage.bri = 200;
-localStorage.on = false;
+localStorage.hue = 65000; // uint16w 0-65535. 0 & 65535 are red, 25500 is green, and 46920 is blue
+localStorage.sat = 255;   // uint8 0-255.     255 is the most saturated (colored) and 0 is the least saturated (white).
+localStorage.bri = 200;   // uint8 0-255.     0 is no light and 255 is the maximum amount of light.
+localStorage.on = false; // bool.            On =true, Off=false
 
 localStorage.mURL = 'http://skynet.im/messages';
 localStorage.devices = 'adcf9640-f71a-11e3-a289-c9c410d2a47e';
